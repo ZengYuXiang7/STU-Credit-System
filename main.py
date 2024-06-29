@@ -2,6 +2,11 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import pandas as pd
 import os
+import numpy as np
+
+temp = np.random.rand(6, 6)
+df = pd.DataFrame(temp)
+df.columns = ['A', 'B', 'CCC', 'DDDD', 'EEEE', 'FDSSSSDSDSD']
 
 class MainGUI:
     def __init__(self, root):
@@ -9,8 +14,8 @@ class MainGUI:
         self.root.title("学分制系统")
 
         # 设置窗口大小
-        self.window_width = 600
-        self.window_height = 800
+        self.window_width = 800
+        self.window_height = 600
 
         # 获取屏幕尺寸以计算布局参数，使窗口居屏幕中央
         screen_width = self.root.winfo_screenwidth()
@@ -202,16 +207,57 @@ class MainGUI:
     def goback_main_gui(self):
         self.setup_select_login_ui()
 
+    def display_df(self, df):
+        tree = ttk.Treeview(root)
+        tree["columns"] = list(df.columns)
+        tree["show"] = "headings"
+        # 获取屏幕宽度和列数
+        window_width, window_height = self.root.winfo_width(), self.root.winfo_height()
+        pady, padx = 20, 20
+        num_columns = len(df.columns)
+        column_width = (window_width-4*padx) // num_columns
+
+        for column in df.columns:
+            tree.heading(column, text=column)
+            tree.column(column, width=column_width)
+
+        for index, row in df.iterrows():
+            tree.insert("", "end", values=list(row))
+
+        # 将表格放置在窗口中心
+        tree.pack(pady=pady, padx=padx)
+
+        # 计算窗口居中位置
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x = int((screen_width / 2) - (window_width / 2))
+        y = int((screen_height / 2) - (window_height / 2))
+
+        self.root.geometry(f"{window_width}x{window_height}+{x}+{y}")
+
+    def add_df(self, df):
+        for col in df.columns:
+            frame = tk.Frame(self.root)
+            frame.pack()
+            tk.Label(frame, text=col+":", font=('Arial', 18)).pack(side='left', pady=5)
+            new_item_entry = ttk.Entry(frame, font=('Arial', 18))
+            new_item_entry.pack(side='left', pady=5)
+        # command 待实现
+        # ttk.Button(self.root, text='添加', style='TButton', command='').pack(pady=20)
+
+    def del_df(self):
+        return
+
     def course_list_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="课程列表", font=('Arial', 21)).pack(pady=20)
-        # 在这里添加显示课程列表的代码
+        self.display_df(df)
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_course_management_ui).pack(pady=10)
 
     def add_course_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="添加课程", font=('Arial', 21)).pack(pady=20)
-        # 在这里添加添加课程的代码
+        # self.add_df(df)
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_course_management_ui).pack(pady=10)
 
     def delete_course_ui(self):
@@ -230,6 +276,7 @@ class MainGUI:
         self.clear_frame()
         tk.Label(self.root, text="学生列表", font=('Arial', 21)).pack(pady=20)
         # 在这里添加显示学生列表的代码
+
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_student_management_ui).pack(pady=10)
 
     def add_student_ui(self):
@@ -339,7 +386,6 @@ class MainGUI:
         tk.Label(self.root, text="培养方案查询", font=('Arial', 21)).pack(pady=20)
         # 在这里添加显示培养方案的代码
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_training_program_ui).pack(pady=10)
-
 
 if __name__ == '__main__':
     root = tk.Tk()
