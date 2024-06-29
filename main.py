@@ -110,21 +110,66 @@ class MainGUI:
     def setup_admin_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="管理员界面", font=('Arial', 21)).pack(pady=20)
-        ttk.Button(self.root, text='课程管理', style='TButton', command=self.setup_select_login_ui).pack(pady=10)
-        ttk.Button(self.root, text='学生管理', style='TButton', command=self.setup_select_login_ui).pack(pady=10)
-        ttk.Button(self.root, text='教师管理', style='TButton', command=self.setup_select_login_ui).pack(pady=10)
-        ttk.Button(self.root, text='考试安排', style='TButton', command=self.setup_select_login_ui).pack(pady=10)
-        ttk.Button(self.root, text='学生成绩管理', style='TButton', command=self.setup_select_login_ui).pack(pady=10)
+        ttk.Button(self.root, text='课程管理', style='TButton', command=self.setup_course_management_ui).pack(pady=10)
+        ttk.Button(self.root, text='学生管理', style='TButton', command=self.setup_student_management_ui).pack(pady=10)
+        ttk.Button(self.root, text='教师管理', style='TButton', command=self.setup_teacher_management_ui).pack(pady=10)
+        ttk.Button(self.root, text='考试安排', style='TButton', command=self.setup_exam_management_ui).pack(pady=10)
+        ttk.Button(self.root, text='学生成绩管理', style='TButton', command=self.setup_grade_management_ui).pack(pady=10)
         ttk.Button(self.root, text='注销', style='TButton', command=self.setup_select_login_ui).pack(pady=10)
 
     def setup_student_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="学生界面", font=('Arial', 21)).pack(pady=20)
-        ttk.Button(self.root, text='选课', style='TButton', command=self.setup_login_ui).pack(pady=10)
-        ttk.Button(self.root, text='课程查询', style='TButton', command=self.setup_login_ui).pack(pady=10)
-        ttk.Button(self.root, text='考试查询', style='TButton', command=self.setup_login_ui).pack(pady=10)
-        ttk.Button(self.root, text='培养方案', style='TButton', command=self.setup_login_ui).pack(pady=10)
+        ttk.Button(self.root, text='选课', style='TButton', command=self.setup_course_selection_ui).pack(pady=10)
+        ttk.Button(self.root, text='课程查询', style='TButton', command=self.setup_course_query_ui).pack(pady=10)
+        ttk.Button(self.root, text='考试查询', style='TButton', command=self.setup_exam_query_ui).pack(pady=10)
+        ttk.Button(self.root, text='培养方案', style='TButton', command=self.setup_training_program_ui).pack(pady=10)
         ttk.Button(self.root, text='注销', style='TButton', command=self.setup_select_login_ui).pack(pady=10)
+
+    def setup_course_management_ui(self):
+        self.clear_frame()
+        tk.Label(self.root, text="课程管理", font=('Arial', 21)).pack(pady=20)
+        ttk.Button(self.root, text='返回', style='TButton', command=self.setup_admin_ui).pack(pady=10)
+
+    def setup_student_management_ui(self):
+        self.clear_frame()
+        tk.Label(self.root, text="学生管理", font=('Arial', 21)).pack(pady=20)
+        ttk.Button(self.root, text='返回', style='TButton', command=self.setup_admin_ui).pack(pady=10)
+
+    def setup_teacher_management_ui(self):
+        self.clear_frame()
+        tk.Label(self.root, text="教师管理", font=('Arial', 21)).pack(pady=20)
+        ttk.Button(self.root, text='返回', style='TButton', command=self.setup_admin_ui).pack(pady=10)
+
+    def setup_exam_management_ui(self):
+        self.clear_frame()
+        tk.Label(self.root, text="考试安排", font=('Arial', 21)).pack(pady=20)
+        ttk.Button(self.root, text='返回', style='TButton', command=self.setup_admin_ui).pack(pady=10)
+
+    def setup_grade_management_ui(self):
+        self.clear_frame()
+        tk.Label(self.root, text="学生成绩管理", font=('Arial', 21)).pack(pady=20)
+        ttk.Button(self.root, text='返回', style='TButton', command=self.setup_admin_ui).pack(pady=10)
+
+    def setup_course_selection_ui(self):
+        self.clear_frame()
+        tk.Label(self.root, text="选课", font=('Arial', 21)).pack(pady=20)
+        ttk.Button(self.root, text='返回', style='TButton', command=self.setup_student_ui).pack(pady=10)
+
+    def setup_course_query_ui(self):
+        self.clear_frame()
+        tk.Label(self.root, text="课程查询", font=('Arial', 21)).pack(pady=20)
+        ttk.Button(self.root, text='返回', style='TButton', command=self.setup_student_ui).pack(pady=10)
+
+    def setup_exam_query_ui(self):
+        self.clear_frame()
+        tk.Label(self.root, text="考试查询", font=('Arial', 21)).pack(pady=20)
+        ttk.Button(self.root, text='返回', style='TButton', command=self.setup_student_ui).pack(pady=10)
+
+    def setup_training_program_ui(self):
+        self.clear_frame()
+        tk.Label(self.root, text="培养方案", font=('Arial', 21)).pack(pady=20)
+        ttk.Button(self.root, text='返回', style='TButton', command=self.setup_student_ui).pack(pady=10)
 
     def clear_frame(self):
         for widget in self.root.winfo_children():
