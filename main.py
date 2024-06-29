@@ -257,7 +257,7 @@ class MainGUI:
     def add_course_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="添加课程", font=('Arial', 21)).pack(pady=20)
-        # self.add_df(df)
+        # 在这里添加添加课程的代码
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_course_management_ui).pack(pady=10)
 
     def delete_course_ui(self):
@@ -275,8 +275,7 @@ class MainGUI:
     def student_list_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="学生列表", font=('Arial', 21)).pack(pady=20)
-        # 在这里添加显示学生列表的代码
-
+        self.display_df(df)
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_student_management_ui).pack(pady=10)
 
     def add_student_ui(self):
@@ -300,7 +299,7 @@ class MainGUI:
     def teacher_list_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="教师列表", font=('Arial', 21)).pack(pady=20)
-        # 在这里添加显示教师列表的代码
+        self.display_df(df)
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_teacher_management_ui).pack(pady=10)
 
     def add_teacher_ui(self):
@@ -324,7 +323,7 @@ class MainGUI:
     def exam_list_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="考试列表", font=('Arial', 21)).pack(pady=20)
-        # 在这里添加显示考试列表的代码
+        self.display_df(df)
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_exam_management_ui).pack(pady=10)
 
     def add_exam_ui(self):
@@ -348,7 +347,7 @@ class MainGUI:
     def student_grade_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="学生成绩",font=('Arial', 21)).pack(pady=20)
-        # 在这里添加显示学生成绩的代码
+        self.display_df(df)
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_grade_management_ui).pack(pady=10)
 
     def modify_grade_ui(self):
@@ -360,7 +359,7 @@ class MainGUI:
     def selected_courses_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="已选课程查询", font=('Arial', 21)).pack(pady=20)
-        # 在这里添加显示已选课程的代码
+        self.display_df(df)
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_course_query_ui).pack(pady=10)
 
     def schedule_ui(self):
@@ -372,19 +371,19 @@ class MainGUI:
     def exam_time_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="考试时间查询", font=('Arial', 21)).pack(pady=20)
-        # 在这里添加显示考试时间的代码
+        self.display_df(df)
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_exam_query_ui).pack(pady=10)
 
     def exam_grade_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="考试成绩查询", font=('Arial', 21)).pack(pady=20)
-        # 在这里添加显示考试成绩的代码
+        self.display_df(df)
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_exam_query_ui).pack(pady=10)
 
     def training_program_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="培养方案查询", font=('Arial', 21)).pack(pady=20)
-        # 在这里添加显示培养方案的代码
+        self.display_df(df)
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_training_program_ui).pack(pady=10)
 
 if __name__ == '__main__':
