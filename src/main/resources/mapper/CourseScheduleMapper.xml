@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="stu.mapper.CourseScheduleMapper">
+
+    <resultMap id="BaseResultMap" type="stu.pojo.CourseSchedule">
+            <id property="courseId" column="course_id" jdbcType="VARCHAR"/>
+            <result property="classTime" column="class_time" jdbcType="TIMESTAMP"/>
+            <result property="numberOfStudents" column="number_of_students" jdbcType="INTEGER"/>
+            <result property="roomNumber" column="room_number" jdbcType="VARCHAR"/>
+            <result property="teacherId" column="teacher_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        course_id,class_time,number_of_students,
+        room_number,teacher_id
+    </sql>
+</mapper>

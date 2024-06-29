@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="stu.mapper.EnrollmentMapper">
+
+    <resultMap id="BaseResultMap" type="stu.pojo.Enrollment">
+            <id property="enrollmentId" column="enrollment_id" jdbcType="INTEGER"/>
+            <result property="studentId" column="student_id" jdbcType="INTEGER"/>
+            <result property="courseId" column="course_id" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        enrollment_id,student_id,course_id
+    </sql>
+</mapper>

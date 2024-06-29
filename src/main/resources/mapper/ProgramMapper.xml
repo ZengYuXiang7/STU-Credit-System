@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="stu.mapper.ProgramMapper">
+
+    <resultMap id="BaseResultMap" type="stu.pojo.Program">
+            <id property="programId" column="program_id" jdbcType="INTEGER"/>
+            <result property="department" column="department" jdbcType="VARCHAR"/>
+            <result property="compulsoryCredits" column="compulsory_credits" jdbcType="INTEGER"/>
+            <result property="electiveCredits" column="elective_credits" jdbcType="INTEGER"/>
+            <result property="foreignLanguageCredits" column="foreign_language_credits" jdbcType="INTEGER"/>
+            <result property="totalCredits" column="total_credits" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        program_id,department,compulsory_credits,
+        elective_credits,foreign_language_credits,total_credits
+    </sql>
+</mapper>

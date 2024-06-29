@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="stu.mapper.TextbooksMapper">
+
+    <resultMap id="BaseResultMap" type="stu.pojo.Textbooks">
+            <id property="courseId" column="course_id" jdbcType="VARCHAR"/>
+            <result property="textbookName" column="textbook_name" jdbcType="VARCHAR"/>
+            <result property="price" column="price" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        course_id,textbook_name,price
+    </sql>
+</mapper>

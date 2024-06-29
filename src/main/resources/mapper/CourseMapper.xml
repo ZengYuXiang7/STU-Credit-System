@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="stu.mapper.CourseMapper">
+
+    <resultMap id="BaseResultMap" type="stu.pojo.Course">
+            <id property="courseId" column="course_id" jdbcType="VARCHAR"/>
+            <result property="courseName" column="course_name" jdbcType="VARCHAR"/>
+            <result property="creditHours" column="credit_hours" jdbcType="INTEGER"/>
+            <result property="lectureHours" column="lecture_hours" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        course_id,course_name,credit_hours,
+        lecture_hours
+    </sql>
+</mapper>
