@@ -110,11 +110,16 @@ class MainGUI:
     def setup_admin_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="管理员界面", font=('Arial', 21)).pack(pady=20)
+
         ttk.Button(self.root, text='注销', style='TButton', command=self.setup_login_ui).pack(pady=10)
 
     def setup_student_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="学生界面", font=('Arial', 21)).pack(pady=20)
+        ttk.Button(self.root, text='选课', style='TButton', command=self.setup_login_ui).pack(pady=10)
+        ttk.Button(self.root, text='课程查询', style='TButton', command=self.setup_login_ui).pack(pady=10)
+        ttk.Button(self.root, text='考试查询', style='TButton', command=self.setup_login_ui).pack(pady=10)
+        ttk.Button(self.root, text='培养方案', style='TButton', command=self.setup_login_ui).pack(pady=10)
         ttk.Button(self.root, text='注销', style='TButton', command=self.setup_login_ui).pack(pady=10)
 
     def clear_frame(self):
