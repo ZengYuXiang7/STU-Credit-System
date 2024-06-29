@@ -4,9 +4,19 @@ import pandas as pd
 import os
 import numpy as np
 
-temp = np.random.rand(6, 6)
-df = pd.DataFrame(temp)
-df.columns = ['A', 'B', 'CCC', 'DDDD', 'EEEE', 'FDSSSSDSDSD']
+# 创建一个 DataFrame 并设置列名
+df = pd.DataFrame(columns=['course_id', 'class_time', 'number_of_students', 'room_number', 'teacher_id'])
+# 添加数据到 DataFrame
+data = [
+    ['CS0112', '2024-09-01 08:00:00', 30, '101', 1],
+    ['BD02245', '2024-09-01 10:00:00', 40, '102', 2],
+    ['ENG031', '2024-09-01 13:00:00', 35, '201', 3],
+    ['HIS024', '2024-09-01 15:00:00', 25, '202', 4]
+]
+
+# 将数据添加到 DataFrame 的末尾
+for row in data:
+    df.loc[len(df)] = row
 
 class MainGUI:
     def __init__(self, root):
@@ -40,7 +50,7 @@ class MainGUI:
         if not os.path.exists(self.user_data_file):
             self.init_user_data()
 
-        self.identities = {'admin': 0}
+        self.identities = {'2024': 0}
 
     def init_user_data(self):
         df = pd.DataFrame(columns=['username', 'password'])
@@ -236,16 +246,30 @@ class MainGUI:
         self.root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
     def add_df(self, df):
+        data = {}
+
         for col in df.columns:
             frame = tk.Frame(self.root)
             frame.pack()
             tk.Label(frame, text=col+":", font=('Arial', 18)).pack(side='left', pady=5)
             new_item_entry = ttk.Entry(frame, font=('Arial', 18))
             new_item_entry.pack(side='left', pady=5)
-        # command 待实现
-        # ttk.Button(self.root, text='添加', style='TButton', command='').pack(pady=20)
+            data[col] = new_item_entry
+        def send_data():
+            data_to_send = {}
+            for key, entry in data.items():
+                data_to_send[key] = entry.get()
+
+            # Convert data to JSON
+            # json_data = json.dumps(data_to_send)
+            # Send data to backend.
+
+        ttk.Button(self.root, text='添加', style='TButton', command=send_data()).pack(pady=20)
 
     def del_df(self):
+        return
+
+    def mod_df(self):
         return
 
     def course_list_ui(self):
@@ -257,7 +281,7 @@ class MainGUI:
     def add_course_ui(self):
         self.clear_frame()
         tk.Label(self.root, text="添加课程", font=('Arial', 21)).pack(pady=20)
-        # 在这里添加添加课程的代码
+        self.add_df(df)
         ttk.Button(self.root, text='返回', style='TButton', command=self.setup_course_management_ui).pack(pady=10)
 
     def delete_course_ui(self):
