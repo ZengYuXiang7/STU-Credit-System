@@ -31,10 +31,10 @@ def get_word():
     return units_format
 
 
-class WordMemoryGameGUI:
+class MainGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("Word Memory Game")
+        self.root.title("学分制系统")
 
         # 设置窗口大小
         self.window_width = 600
@@ -188,5 +188,5 @@ def custom_messagebox(title, message):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = WordMemoryGameGUI(root)
+    app = MainGUI(root)
     root.mainloop()
